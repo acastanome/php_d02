@@ -22,7 +22,7 @@ function check_input_format($date)
 function parse_date($date, $parsed_date)
 {
     $result = mktime($parsed_date['tm_hour'], $parsed_date['tm_min'], $parsed_date['tm_sec'],
-        $parsed_date['tm_mon'] + 1, $parsed_date['tm_mday'], $parsed_date['tm_year'] + 1900);
+    $parsed_date['tm_mon'] + 1, $parsed_date['tm_mday'], $parsed_date['tm_year'] + 1900);
     if (date("w", $result) == $parsed_date['tm_wday'])
         echo $result . "\n";
     else
@@ -36,7 +36,8 @@ else if ($argc == 2)
     $array = explode(' ', $argv[1]);
     if (count($array) == 5)
     {
-	    setlocale($LC_TIME, "fr_FR"); 
+	    setlocale($LC_TIME, "fr_FR");
+        date_default_timezone_set('Europe/Paris');
 	    check_input_format($argv[1]);
     }
     else
